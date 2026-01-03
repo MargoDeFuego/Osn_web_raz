@@ -1,0 +1,30 @@
+dialog {
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+input:user-valid {
+  border: 2px solid green;
+}
+
+input:user-invalid {
+  border: 2px solid red;
+}
+
+.error {
+  min-height: 1em;
+  color: red;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
