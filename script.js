@@ -51,14 +51,14 @@ function validateField(input) {
 
 // Submit
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // предотвращаем перезагрузку страницы
 
   let firstInvalid = null;
 
   form.querySelectorAll("input").forEach((input) => {
     validateField(input);
     if (!input.validity.valid && !firstInvalid) {
-      firstInvalid = input;
+      firstInvalid = input; // запоминаем первое неверное поле
     }
   });
 
