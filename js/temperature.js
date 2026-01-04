@@ -1,8 +1,6 @@
 import { showToast } from './toast.js';
 
-// TODO: подставь реальный URL сервера из задания
-// Например: const TEMPERATURE_URL = 'https://.../lab5/temperature';
-const TEMPERATURE_URL = 'PUT_TEMPERATURE_URL_HERE';
+const TEMPERATURE_URL = 'http://localhost:3000/temperature';
 
 export function initTemperatureForm() {
   const form = document.getElementById('temperature-form');

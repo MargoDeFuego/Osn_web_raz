@@ -1,6 +1,6 @@
 import { showToast } from './toast.js';
 
-const GALLERY_URL = '...';
+const GALLERY_URL = 'http://localhost:3000/gallery';
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
@@ -82,12 +82,19 @@ function renderGallery(container, items) {
   const fragment = document.createDocumentFragment();
 
   items.forEach((item) => {
+    if (!item.url) return;
+
     const card = document.createElement('article');
     card.className = 'gallery-card';
 
     const img = document.createElement('img');
     img.src = item.url;
     img.alt = item.description || item.title || 'Изображение';
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      card.remove();
+    };
 
     const caption = document.createElement('p');
     caption.textContent = item.title || 'Без названия';
@@ -98,3 +105,4 @@ function renderGallery(container, items) {
 
   container.append(fragment);
 }
+
