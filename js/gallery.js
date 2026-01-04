@@ -1,8 +1,6 @@
 import { showToast } from './toast.js';
 
-// TODO: подставь реальный URL сервера из задания
-// Например: const GALLERY_URL = 'https://.../lab5/gallery';
-const GALLERY_URL = 'PUT_GALLERY_URL_HERE';
+const GALLERY_URL = '...';
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
@@ -47,12 +45,10 @@ async function loadGallery(isManualRefresh) {
     if (isManualRefresh) {
       showToast('Галерея обновлена', 'success');
     }
-  } catch (error) {
+  } catch {
     loader.hidden = true;
     emptyText.hidden = true;
     showToast('Не удалось загрузить изображения. Попробуйте позже.', 'error');
-    // На защите можно упомянуть: логируем ошибку в консоль для отладки
-    // console.error(error);
   }
 }
 
@@ -68,12 +64,10 @@ async function fetchWithRetry(url, maxRetries, delayMs) {
       }
 
       return response.json();
-    } catch (error) {
-      lastError = error;
+    } catch {
+      lastError = new Error('Request failed');
 
       if (attempt < maxRetries) {
-        // Небольшая пауза перед повтором
-        // eslint-disable-next-line no-await-in-loop
         await new Promise((resolve) => {
           setTimeout(resolve, delayMs);
         });

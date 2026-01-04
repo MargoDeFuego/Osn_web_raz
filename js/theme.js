@@ -13,8 +13,8 @@ export function initThemeToggle() {
 
     try {
       localStorage.setItem('theme', next);
-    } catch (e) {
-      // На защите можно сказать: ошибки работы с localStorage безопасно игнорируем
+    } catch {
+      // Ошибки localStorage игнорируем
     }
   });
 }
