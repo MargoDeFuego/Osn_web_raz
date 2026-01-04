@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>ФИО - Лабораторная работа №5</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Мгновенная установка темы без мерцания -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme = saved === 'dark' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      }());
+    </script>
+
+    <script type="module" src="js/main.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>ФИО - Лабораторная работа №5</h1>
+      <button id="theme-toggle" class="theme-btn" type="button">
+        Переключить тему
+      </button>
+    </header>
+
+    <main>
+      <!-- Галерея -->
+      <section id="gallery-section" aria-labelledby="gallery-title">
+        <div class="section-header">
+          <h2 id="gallery-title">Галерея</h2>
+          <button id="gallery-refresh" class="refresh-btn" type="button">
+            Обновить галерею
+          </button>
+        </div>
+
+        <div id="gallery-loader" class="loader" hidden aria-live="polite">
+          Загрузка...
+        </div>
+
+        <p id="gallery-empty" hidden>Изображения не найдены.</p>
+
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+      </section>
+
+      <!-- Температура -->
+      <section id="temperature-section" aria-labelledby="temp-title">
+        <h2 id="temp-title">Отправка температуры</h2>
+
+        <form id="temperature-form" novalidate>
+          <div class="form-field">
+            <label for="room">Номер аудитории</label>
+            <input id="room" name="room" required autocomplete="off">
+          </div>
+
+          <div class="form-field">
+            <label for="temperature">Температура</label>
+            <input
+              id="temperature"
+              name="temperature"
+              required
+              inputmode="decimal"
+              autocomplete="off"
+            >
+          </div>
+
+          <button type="submit" id="temperature-submit">
+            Отправить
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Контейнер тостов -->
+    <div
+      id="toast-container"
+      class="toast-container"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+  </body>
+</html>
