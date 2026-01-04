@@ -5,6 +5,9 @@ export function initThemeToggle() {
     return;
   }
 
+  try { const saved = localStorage.getItem('theme'); if (saved) { document.documentElement.setAttribute('data-theme', saved); } 
+    } catch {}
+
   button.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme') || 'light';
     const next = current === 'light' ? 'dark' : 'light';
