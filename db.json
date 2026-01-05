@@ -3,5 +3,15 @@
     "room": "2",
     "temperature": 25,
     "createdAt": "2026-01-04T23:31:30.702Z"
+  },
+  {
+    "room": "111",
+    "temperature": 11,
+    "createdAt": "2026-01-04T23:37:04.637Z"
+  },
+  {
+    "room": "111",
+    "temperature": 13,
+    "createdAt": "2026-01-04T23:37:10.127Z"
   }
 ]
