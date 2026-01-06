@@ -13,5 +13,10 @@
     "room": "111",
     "temperature": 13,
     "createdAt": "2026-01-04T23:37:10.127Z"
+  },
+  {
+    "room": "1",
+    "temperature": 1,
+    "createdAt": "2026-01-05T22:09:33.098Z"
   }
 ]
